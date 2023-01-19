@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta name="google-signin-client_id"
+        content="3482842156-hq1fanqe754geoabnuhtqfjmn1e6admn.apps.googleusercontent.com.apps.googleusercontent.com">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <link type="image/png" sizes="16x16" rel="icon" href="./img/fav_icon/icons8-car-charger-16.png">
+
+    <!-- linking js and css -->
+    <link rel="stylesheet" href="./css//style.css">
+    <script src="./js/index.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <div id="pageMessages">
+    </div>
+
+
+
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
+                <!-- <div class="sidebar-brand-icon rotate-n-15"> -->
+                <i class="fas fa-car"></i>
+                <!-- <img src="" alt=""> -->
+                <!-- </div> -->
+                <div class="sidebar-brand-text mx-3">EV App Admin <sup></sup></div>
+            </a>
+
+
+            <hr class="sidebar-divider my-0" />
+
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <hr class="sidebar-divider" />
+
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-users"></i>
+                    <span>User</span></a>
+            </li>
+
+            <hr class="sidebar-divider" />
+
+            <li class="nav-item">
+                <a class="nav-link" href="change_password.html">
+                    <i class="fas fa-key"></i>
+                    <span>Change Password</span></a>
+            </li>
+
+            <hr class="sidebar-divider" />
+
+            <li class="nav-item active">
+                <a class="nav-link" href="charger_managment.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-ev-station" viewBox="0 0 16 16">
+                        <path
+                            d="M3.5 2a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5h-5Zm2.131 10.46H4.14v-.893h1.403v-.505H4.14v-.855h1.49v-.54H3.485V13h2.146v-.54Zm1.316.54h.794l1.106-3.333h-.733l-.74 2.615h-.031l-.747-2.615h-.764L6.947 13Z" />
+                        <path
+                            d="M3 0a2 2 0 0 0-2 2v13H.5a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1H11v-4a1 1 0 0 1 1 1v.5a1.5 1.5 0 0 0 3 0V4a.5.5 0 0 0-.146-.354l-.5-.5a.5.5 0 0 0-.707 0l-.5.5A.5.5 0 0 0 13 4v3c0 .71.38 1.096.636 1.357l.007.008c.253.258.357.377.357.635v3.5a.5.5 0 1 1-1 0V12a2 2 0 0 0-2-2V2a2 2 0 0 0-2-2H3Zm7 2v13H2V2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1Z" />
+                    </svg> <span>Charger Management</span></a>
+            </li>
+
+
+            <li class="nav-item ">
+                <a class="nav-link" href="car_managment.html">
+                    <i class="fas fa-car"></i>
+                    <span>Car Management</span></a>
+            </li>
+
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column" st>
+            <!-- Main Content -->.
+
+            <div id="content">
+
+                <!-- === DISPLAYING TABLE START -->
+                <div class="card" id="display_table" style="margin: 30px; border: none;">
+
+                    <!-- <div class="card" style="margin: 30px; border: none;"> -->
+
+
+                        <table>
+                            <th>
+                                <h3 style="text-align: center; color: #17a2b8;">Charger List</h3>
+                            </th>
+                            <th>
+                                <div class="row my-4">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#exampleModal1"
+                                        style="border-radius: 25px; background-color:rgb(255 114 38); border: none;">
+                                        <i class="fa fa-plus"></i> </button>
+                                </div>
+                            </th>
+                        </table>
+
+
+                        <div class="row" style="margin-left: 10px;margin-right: 10px;">
+
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="text-align: center;">#</th>
+                                        <th scope="col" style="text-align: center;">Station Name</th>
+                                        <th scope="col" style="text-align: center;">Mobile</th>
+                                        <th scope="col" style="text-align: center;">Address</th>
+                                        <th scope="col" style="text-align: center;">Vehicle Type</th>
+                                        <!-- <th scope="col" style="text-align: center;">Vehicle Brand</th>
+                                        <th scope="col" style="text-align: center;">Vehicle Model</th>
+                                        <th scope="col" style="text-align: center;">Vehicle Plug</th> -->
+                                        <th scope="col" style="text-align: center;">Active Hours</th>
+                                        <th scope="col" style="text-align: center;">Longitude</th>
+                                        <th scope="col" style="text-align: center;">Latitude</th>
+                                        <th scope="col" style="text-align: center;">actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="render_data">
+
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+
+                        <div id="update_form">
+                        </div>
+                    <!-- </div> -->
+
+                </div>
+                <!-- === DISPLAYING TABLE END -->
+
+
+                <!-- === DISPLAY CHARGER INFO START === -->
+                <div class="display_charger_info" id="display_charger_info" style="display: none;">
+                    <div class="card" style="margin: 30px; border: none;">
+
+                        <!-- <div class="card" style="margin: 30px; border: none;"> -->
+
+                        <table>
+                            <th style="margin-left: 15px;">
+                                <a href="./charger_managment.html"> <button type="button" class="btn btn-outline-danger"
+                                        style=" border-radius: 20px; margin-top: 10px; margin-left: 10px;"><b>
+                                            <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                                    </button></a>
+                            </th>
+
+
+                        </table>
+
+                        <!-- <div class="container mt-5" id="car_table"> -->
+
+                        <div class="page-content page-container" id="page-content">
+                            <div class="padding">
+                                <div class="row container d-flex justify-content-center">
+                                    <div class="col-xl-6 col-md-12">
+                                        <div class="card user-card-full">
+                                            <div class="row m-l-0 m-r-0">
+                                                <div class="col-sm-4 bg-c-lite-green user-profile">
+                                                    <div class="card-block text-center text-white">
+                                                        <div class="m-b-25">
+                                                            <!-- <img src="https://img.icons8.com/bubbles/100/000000/user.png"
+                                                                class="img-radius" alt="User-Profile-Image"> -->
+                                                        </div>
+                                                        <h6 class="f-w-600"></h6>
+                                                        <p style="justify-content: center;"><b>Charger Information</b>
+                                                        </p>
+                                                        <i
+                                                            class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="card-block">
+                                                        <!-- <h5>Car Information</h5> -->
+                                                        <br>
+
+                                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600"
+                                                            style="color: rgb(252, 166, 7);">vehicle Information
+                                                        </h6>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <p class="m-b-10 f-w-600">Vehical Type</p>
+                                                                <h6 class="text-muted f-w-400" id="vehical_type">--
+                                                                </h6>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <p class="m-b-10 f-w-600">Car Brand</p>
+                                                                <h6 class="text-muted f-w-400" id="car_brand">--</h6>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <p class="m-b-10 f-w-600">Model Number</p>
+                                                                <h6 class="text-muted f-w-400" id="model_number">--</h6>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <p class="m-b-10 f-w-600">Charging Type</p>
+                                                                <h6 class="text-muted f-w-400" id="plug_type">--
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"
+                                                            style="color: rgb(252, 166, 7);">Address Information
+                                                        </h6>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <p class="m-b-10 f-w-600">Station Address</p>
+                                                                <h6 class="text-muted f-w-400" id="station_address">__
+                                                                </h6>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <p class="m-b-10 f-w-600">longitude</p>
+                                                                <h6 class="text-muted f-w-400" id="longitude">__</h6>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <p class="m-b-10 f-w-600">latitude</p>
+                                                                <h6 class="text-muted f-w-400" id="latitude">__</h6>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="social-link list-unstyled m-t-40 m-b-10">
+                                                            <li><a href="#!" data-toggle="tooltip"
+                                                                    data-placement="bottom" title=""
+                                                                    data-original-title="facebook" data-abc="true"><i
+                                                                        class="mdi mdi-facebook feather icon-facebook facebook"
+                                                                        aria-hidden="true"></i></a></li>
+                                                            <li><a href="#!" data-toggle="tooltip"
+                                                                    data-placement="bottom" title=""
+                                                                    data-original-title="twitter" data-abc="true"><i
+                                                                        class="mdi mdi-twitter feather icon-twitter twitter"
+                                                                        aria-hidden="true"></i></a></li>
+                                                            <li><a href="#!" data-toggle="tooltip"
+                                                                    data-placement="bottom" title=""
+                                                                    data-original-title="instagram" data-abc="true"><i
+                                                                        class="mdi mdi-instagram feather icon-instagram instagram"
+                                                                        aria-hidden="true"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+
+
+
+                        <!-- </div> -->
+                        <!-- </div> -->
+
+                    </div>
+                </div>
+                <!-- === DISPLAY CHARGER INFO END === -->
+            </div>
+
+
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document" style="border-radius: 25%;">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <!-- ========= add charger ui start ======= -->
+
+                            <div id="add_charger_ui">
+                                <div class="card w-150" style="margin: 20px; padding: 0;">
+
+                                    <div class="card-body">
+
+                                        <h5 class="text-info" style="align-items: center; text-align: center;">
+                                            Add Charger
+                                        </h5>
+                                        <form id="login-form">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="station_name"
+                                                    aria-describedby="emailHelp" placeholder="Station Name">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="mobile"
+                                                    aria-describedby="emailHelp" placeholder="Mobile">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="address"
+                                                    aria-describedby="emailHelp" placeholder="Address">
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <select class="form-control" id="vehical_type_dropdown"
+                                                    style="background: #fafafa;">
+                                                    <option>Vehicle Type</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control" id="vehical_brand_dropdown"
+                                                    style="background: #fafafa;">
+                                                    <option>Vehicle Brand</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control" id="vehical_model_dropdown"
+                                                    style="background: #fafafa;">
+                                                    <option>Vehicle Model</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control" id="vehical_plug_type_dropdown"
+                                                    style="background: #fafafa;">
+                                                    <option>Vehicle Plug</option>
+                                                </select>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="active_hr"
+                                                    aria-describedby="emailHelp" placeholder="Active Hr (eg 12.30-21)">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="long"
+                                                    aria-describedby="emailHelp" placeholder="Longitude">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="lat"
+                                                    aria-describedby="emailHelp" placeholder="Latitude">
+                                            </div>
+                                            <button type="button" class="btn btn-outline-danger"
+                                                data-dismiss="modal">Close</button>
+                                            <button id="add_charger" type="submit" class="btn btn-outline-info">Add
+                                                Charger</button>
+                                            <div id="btn-after" style="display: none;">
+                                                <button id="login" type="submit" class="btn btn-outline-info">
+                                                    <div class="spinner-border spinner-border-sm" role="status"></div>
+                                                </button>
+                                            </div>
+
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <button data-toggle="modal" id="update_model_open" data-target="#exampleModal"
+                style="display:none">jjj</button>
+
+            <!-- -------end add modal -->
+
+
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+
+        </div>
+
+    </div>
+    <!-- Topbar -->
+
+
+
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+        <li class="nav-item dropdown no-arrow d-sm-none">
+
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                    <div class="input-group">
+
+                    </div>
+                </form>
+            </div>
+        </li>
+
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+        </div>
+        <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Ev.com</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+        </div>
+
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+
+        <script>
+
+
+            if (!(localStorage.getItem("cookie")) || (localStorage.getItem("cookie")) == null) {
+                if (confirm("access denied! please login")) {
+                    $('#wrapper').css('display', 'none')
+                    window.location.href = './index.html'
+                }
+                else
+                    window.location.href = './index.html'
+            }
+
+
+            $(document).ready(() => {
+
+
+                /* ======= get vehicle type api integration ======= */
+                $("#vehical_type_dropdown").click(() => {
+                    event.preventDefault()
+
+                    $.ajax({
+                        url: "http://35.78.201.111:4001/admin/get-vehicleTypes",
+                        method: "get",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                        },
+                        dataType: "json",
+                        success: success => {
+                            if (success.status == false) {
+                                createAlert('', `Error! old password missmatch`, '', 'warning', false, true, 'pageMessages')
+                            }
+                            if (success.status == true) {
+                                $("#vehical_type_dropdown").html(`  `)
+                                success.data.map((data) => {
+                                    $("#vehical_type_dropdown").append(`<option>${data.vehical_type}</option>`)
+
+                                })
+                            }
+                        },
+                    })
+                })
+
+                /* ======= get vehicle brand api integration ======= */
+                $("#vehical_brand_dropdown").click(() => {
+                    event.preventDefault()
+                    var vehical_type = $('#vehical_type_dropdown').find(":selected").val();
+
+                    // alert(vehical_type)
+                    $.ajax({
+                        url: `http://35.78.201.111:4001/admin/get-vehicleBrand/${vehical_type}`,
+                        method: "get",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                        },
+                        dataType: "json",
+                        success: success => {
+                            if (success.status == false) {
+                                createAlert('', `Error! old password missmatch`, '', 'warning', false, true, 'pageMessages')
+                            }
+                            if (success.status == true) {
+                                $("#vehical_brand_dropdown").html('')
+                                success.data.map((data) => {
+                                    $("#vehical_brand_dropdown").append(`<option>${data.car_brand}</option>`)
+
+                                })
+                            }
+                        },
+                    })
+                })
+
+
+                /* ======= get vehicle model api integration ======= */
+                $("#vehical_model_dropdown").click(() => {
+                    event.preventDefault()
+                    var vehical_brand = $('#vehical_brand_dropdown').find(":selected").val();
+
+                    $.ajax({
+                        url: `http://35.78.201.111:4001/admin/get-vehicleModels/${vehical_brand}`,
+                        method: "get",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                        },
+                        dataType: "json",
+                        success: success => {
+                            if (success.status == false) {
+                                createAlert('', `Error! old password missmatch`, '', 'warning', false, true, 'pageMessages')
+                            }
+                            if (success.status == true) {
+                                $("#vehical_model_dropdown").html('')
+                                success.data.map((data) => {
+                                    $("#vehical_model_dropdown").append(`<option>${data.model_number}</option>`)
+
+                                })
+                            }
+                        },
+                    })
+                })
+
+
+                /* ======= get vehicle model api integration ======= */
+                $("#vehical_plug_type_dropdown").click(() => {
+                    event.preventDefault()
+                    var vehical_plug_type = $('#vehical_model_dropdown').find(":selected").val();
+
+
+                    $.ajax({
+                        url: `http://35.78.201.111:4001/admin/get-vehiclePlug/${vehical_plug_type}`,
+                        method: "get",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                        },
+                        dataType: "json",
+                        success: success => {
+                            if (success.status == false) {
+                                createAlert('', `Error! old password missmatch`, '', 'warning', false, true, 'pageMessages')
+                            }
+                            if (success.status == true) {
+                                $("#vehical_plug_type_dropdown").html('')
+                                success.data.map((data) => {
+                                    $("#vehical_plug_type_dropdown").append(`<option>${data.plug_type}</option>`)
+
+                                })
+                            }
+                        },
+                    })
+                })
+
+
+                /*----- add charger api integration -----*/
+                $("#add_charger").click(() => {
+                    event.preventDefault()
+                    let details = {
+                        station_name: $("#station_name").val(),
+                        station_mobile: $("#mobile").val(),
+                        station_address: $("#address").val(),
+                        vehical_type: $('#vehical_type_dropdown').find(":selected").val(),
+                        car_brand: $('#vehical_brand_dropdown').find(":selected").val(),
+                        model_number: $('#vehical_model_dropdown').find(":selected").val(),
+                        plug_type: $('#vehical_plug_type_dropdown').find(":selected").val(),
+                        open_hours: $("#active_hr").val(),
+                        longitude: $("#long").val(),
+                        latitude: $("#lat").val(),
+                    }
+
+                    if (details.station_name.length == 0
+                        || details.station_mobile.length == 0
+                        || details.vehical_type.length == 0
+                        || details.open_hours.length == 0
+                        || details.longitude.length == 0
+                        || details.latitude.length == 0
+                        || details.station_address.length == 0) {
+                        createAlert('', `all fields are requires`, '', 'danger', false, true, 'pageMessages')
+                        throw new Error("all fields are requires");
+                    }
+
+
+                    $.ajax({
+                        url: "http://35.78.201.111:4001/charging-station/add",
+                        method: "POST",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                        },
+                        data: details,
+                        dataType: "json",
+                        success: success => {
+                            if (success.status == false) {
+                                createAlert('', `Error! old password missmatch`, '', 'warning', false, true, 'pageMessages')
+                            }
+                            if (success.status == true) {
+                                location.reload()
+                            }
+                        },
+                    })
+                })
+
+
+
+
+                // ======================== car page ======================= //
+                var $request = $.ajax({
+                    url: `http://35.78.201.111:4001/charging-station/get-stations`,
+                    type: "GET",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                    },
+                    dataType: "json",
+                    contentType: "application/json",
+
+                });
+
+                $request.done(function (success) {
+                    let sr_no = 0
+                    var html = ""
+                    success.data.map(info => {
+                        html += ` <tr>
+                        <td  data-id=${info._id} onclick=detail_info(this) scope="row">${sr_no += 1}</td>
+                        <td  data-id=${info._id} onclick=detail_info(this) scope="row">${info.station_name = info.station_name == null || info.station_name == undefined || info.station_name.length == 0 ? info.station_name = "-" : info.station_name}</td>
+                        <td  data-id=${info._id} onclick=detail_info(this) scope="row">${info.station_mobile = info.station_mobile == null || info.station_mobile == undefined || info.station_mobile.length == 0 ? info.station_mobile = "-" : info.station_mobile}</td>
+                        <td  data-id=${info._id} onclick=detail_info(this) scope="row">${info.station_address = info.station_address == null || info.station_address == undefined || info.station_address.length == 0 ? info.station_address = "-" : info.station_address}</td>
+                        <td  data-id=${info._id} onclick=detail_info(this) scope="row">${info.vehical_type = info.vehical_type == null || info.vehical_type == undefined || info.vehical_type.length == 0 ? info.vehical_type = "-" : info.vehical_type}</td>
+                        <td  data-id=${info._id} onclick=detail_info(this) scope="row">${info.open_hours = info.open_hours == null || info.open_hours == undefined || info.open_hours.length == 0 ? info.open_hours = "-" : info.open_hours}</td>
+                        <td  data-id=${info._id} onclick=detail_info(this) scope="row">${info.longitude = info.longitude == null || info.longitude == undefined || info.longitude.length == 0 ? info.longitude = "-" : info.longitude}</td>
+                        <td  data-id=${info._id} onclick=detail_info(this) scope="row">${info.latitude = info.latitude == null || info.latitude == undefined || info.latitude.length == 0 ? info.latitude = "-" : info.latitude}</td>
+                        <th scope="row">
+                          <div>
+                     
+                             <a onclick=edit(this) data-name="${info.vehical_type}" data-d=${info.is_deleted} data-id=${info._id}  style="color: #FFC107;">
+                                <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16" style="font-family:Verdana, Geneva, sans-serif;cursor:pointer;">
+                                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                        </svg>
+                                        <div class="spinner-grow spinner-grow-sm" id="loader" style="display:none"></div>
+                                    </a> 
+                                                                       
+                                <b style="color: #e3e9dc;">|</b>                                 
+                            <a data-id=${info._id} onclick=delete_data(this) style="color: #E34724;">
+                                      <b>  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" style="font-family:Verdana, Geneva, sans-serif;cursor:pointer;"/><path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg>
+                                    </a>
+                                    
+
+                            </th>
+                            <div>
+
+                        
+                                             
+                    </tr>`
+                    })
+
+                    $("#render_data").append(html)
+                })
+            })
+
+
+            function delete_data(e) {
+                if (confirm("are you sure!") == true) {
+                    var id = $(e).attr("data-id")
+
+                    var $request = $.ajax({
+                        url: `http://35.78.201.111:4001/charging-station/delete`,
+                        data: {
+                            station_id: id
+                        },
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                        },
+                        type: "DELETE",
+                        dataType: "json",
+                    });
+
+                    $request.done(function (data) {
+                        // window.location= r
+
+                        createAlert('', `success`, '', 'success', true, true, 'pageMessages')
+                        setTimeout(() => {
+                            location.reload();
+                        }, 500);
+                    })
+                }
+            }
+
+            function get_vehicle_type() {
+                $.ajax({
+                    url: "http://35.78.201.111:4001/admin/get-vehicleTypes",
+                    method: "get",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                    },
+                    dataType: "json",
+                    success: success => {
+                        if (success.status == false) {
+                            createAlert('', `Error! old password missmatch`, '', 'warning', false, true, 'pageMessages')
+                        }
+                        if (success.status == true) {
+                            // $("#vehical_type_dropdown1").html(`  `)
+                            success.data.map((data) => {
+                                $("#vehical_type_dropdown1").append(`<option>${data.vehical_type}</option>`)
+
+                            })
+                        }
+                    },
+                })
+            }
+
+
+            function get_vehicle_brand() {
+                // alert( $('#vehical_type_dropdown1').find(":selected").val())
+                var vehical_type = $('#vehical_type_dropdown1').find(":selected").val();
+
+                // alert(vehical_type)
+                $.ajax({
+                    url: `http://35.78.201.111:4001/admin/get-vehicleBrand/${vehical_type}`,
+                    method: "get",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                    },
+                    dataType: "json",
+                    success: success => {
+                        if (success.status == false) {
+                            createAlert('', `Error! old password missmatch`, '', 'warning', false, true, 'pageMessages')
+                        }
+                        if (success.status == true) {
+                            $("#vehical_brand_dropdown1").html('')
+                            success.data.map((data) => {
+                                $("#vehical_brand_dropdown1").append(`<option>${data.car_brand}</option>`)
+
+                            })
+                        }
+                    },
+                })
+            }
+
+
+            function get_vehicle_model() {
+                // alert( $('#vehical_type_dropdown1').find(":selected").val())
+                var vehical_brand = $('#vehical_brand_dropdown1').find(":selected").val();
+
+                $.ajax({
+                    url: `http://35.78.201.111:4001/admin/get-vehicleModels/${vehical_brand}`,
+                    method: "get",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                    },
+                    dataType: "json",
+                    success: success => {
+                        if (success.status == false) {
+                            createAlert('', `Error! old password missmatch`, '', 'warning', false, true, 'pageMessages')
+                        }
+                        if (success.status == true) {
+                            $("#vehical_model_dropdown1").html('')
+                            success.data.map((data) => {
+                                $("#vehical_model_dropdown1").append(`<option>${data.model_number}</option>`)
+
+                            })
+                        }
+                    },
+                })
+            }
+
+
+            function get_vehicle_plug() {
+                // alert( $('#vehical_type_dropdown1').find(":selected").val())
+                var vehical_plug_type = $('#vehical_model_dropdown1').find(":selected").val();
+
+
+                $.ajax({
+                    url: `http://35.78.201.111:4001/admin/get-vehiclePlug/${vehical_plug_type}`,
+                    method: "get",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                    },
+                    dataType: "json",
+                    success: success => {
+                        if (success.status == false) {
+                            createAlert('', `Error! old password missmatch`, '', 'warning', false, true, 'pageMessages')
+                        }
+                        if (success.status == true) {
+                            $("#vehical_plug_type_dropdown1").html('')
+                            success.data.map((data) => {
+                                $("#vehical_plug_type_dropdown1").append(`<option>${data.plug_type}</option>`)
+
+                            })
+                        }
+                    },
+                })
+            }
+
+            function edit(e) {
+                let html = ``
+                var id = $(e).attr("data-id")
+
+                var $request = $.ajax({
+                    url: `http://35.78.201.111:4001/charging-station/get-station`,
+                    data: {
+                        station_id: id
+                    },
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                    },
+                    type: "post",
+                    dataType: "json",
+                });
+
+                $request.done(async function (data) {
+                    // window.location= r
+                    let update_data = data.data
+                    console.log(update_data)
+
+                    html = ``
+                    html = `
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+
+                                                <div id="add_car_ui" style="display: block;">
+                                                    <div class="card w-150"
+                                                        style="margin: 20px; padding: 0; border: 3px sol;">
+
+
+                                                        <div class="modal-body" style="padding: 20px;">
+                                                            <h5 class="text-info"
+                                                                style="align-items: center; text-align: center;">
+                                                                Update station
+                                                            </h5>
+                                                            <form id="login-form">
+                                                                <div class="form-group">
+                                                                    <input type="hidden" class="form-control"
+                                                                        id="_id" aria-describedby="emailHelp"
+                                                                        placeholder="vehical type" value=${id}>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control"
+                                                                        id="update_station_name" aria-describedby="emailHelp"
+                                                                        placeholder="Station Name" value="${update_data.station_name}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control"
+                                                                        id="update_mobile" aria-describedby="emailHelp"
+                                                                        placeholder="Mobile"  value="${update_data.station_mobile}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control"
+                                                                        id="update_address" aria-describedby="emailHelp"
+                                                                        placeholder="Address" value="${update_data.station_address}">
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <b style="font-size: 13px;color: #17a2b8!important;">vehicle type</b>
+                                                                    <select class="form-control" id="vehical_type_dropdown1"
+                                                                    onclick = "get_vehicle_type()"
+                                                                        style="background: #fafafa;">
+                                                                        <option>${update_data.vehical_type}</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <b style="font-size: 13px;color: #17a2b8!important;">car brand</b>
+                                                                    <select class="form-control" id="vehical_brand_dropdown1"
+                                                                        style="background: #fafafa;"
+                                                                        onclick = "get_vehicle_brand()">
+                                                                        <option>${update_data.car_brand}</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <b style="font-size: 13px;color: #17a2b8!important;">model number</b>
+                                                                    <select class="form-control" id="vehical_model_dropdown1"
+                                                                        style="background: #fafafa;"
+                                                                        onclick = "get_vehicle_model()">
+                                                                        <option>${update_data.model_number}</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <b style="font-size: 13px;color: #17a2b8!important;">plug type</b>
+                                                                    <select class="form-control" id="vehical_plug_type_dropdown1"
+                                                                        style="background: #fafafa;"
+                                                                        onclick = "get_vehicle_plug()">
+                                                                        <option>${update_data.plug_type}</option>
+                                                                    </select>
+                                                                </div>
+
+
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control"
+                                                                        id="update_activ_hours" aria-describedby="emailHelp"
+                                                                        placeholder="Active Hours" value="${update_data.open_hours}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control"
+                                                                        id="update_longitude" aria-describedby="emailHelp"
+                                                                        placeholder="Longitude" value="${update_data.longitude}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control"
+                                                                        id="update_Latitude" aria-describedby="emailHelp"
+                                                                        placeholder="Latitude" value="${update_data.latitude}">
+                                                                </div>
+                                                            
+                                                                <button type="button" class="btn btn-outline-danger"
+                                                                data-dismiss="modal">Close</button>
+                                                            <button id="add_car" type="submit"
+                                                                class="btn btn-outline-info" onclick="update_charger()">Update
+                                                                station</button>
+                                                            </form>
+                                                   
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+                                </div>
+            `
+                    $("#update_form").html(html)
+                    $("#update_model_open").click()
+                })
+
+            }
+
+
+            function update_charger() {
+                event.preventDefault()
+
+                let details = {
+                    station_id: $("#_id").val(),
+                    station_name: $("#update_station_name").val(),
+                    station_address: $("#update_address").val(),
+                    station_mobile: $("#update_mobile").val(),
+                    longitude: $("#update_longitude").val(),
+                    latitude: $("#update_Latitude").val(),
+                    vehical_type: $("#vehical_type_dropdown1").val(),
+                    car_brand: $("#vehical_brand_dropdown1").val(),
+                    model_number: $("#vehical_model_dropdown1").val(),
+                    plug_type: $("#vehical_plug_type_dropdown1").val()
+                }
+
+                console.log(details)
+
+
+                $.ajax({
+                    url: "http://35.78.201.111:4001/charging-station/update",
+                    method: "PUT",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                    },
+                    data: details,
+                    dataType: "json",
+                    success: success => {
+                        if (success.status == false) {
+                            createAlert('', `Error! `, '', 'warning', false, true, 'pageMessages')
+                        }
+                        if (success.status == true) {
+                            setTimeout(() => {
+                                location.reload();
+                            }, 1000);
+                            createAlert('', `data updated`, '', 'success', true, true, 'pageMessages')
+                        }
+                    },
+                })
+            }
+
+
+            function detail_info(info) {
+                var id = $(info).attr("data-id")
+
+                $.ajax({
+                    url: "http://35.78.201.111:4001/charging-station/get-station",
+                    method: "POST",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
+                    },
+                    data: { "station_id": id },
+                    dataType: "json",
+                    success: success => {
+                        if (success.status == false) {
+                            createAlert('', `Error! `, '', 'warning', false, true, 'pageMessages')
+                        }
+                        if (success.status == true) {
+                            $('#display_table').hide();
+                            $('#display_charger_info').css({ display: 'block' });
+
+                            $("#latitude").text(success.data.latitude)
+                            $("#longitude").text(success.data.longitude)
+                            $("#open_hours").text(success.data.open_hours)
+                            $("#station_address").text(success.data.station_address)
+                            $("#station_mobile").text(success.data.station_mobile)
+                            $("#station_name").text(success.data.station_name)
+                            $("#vehical_type").text(success.data.vehical_type)
+                            $("#car_brand").text(success.data.car_brand)
+                            $("#model_number").text(success.data.model_number)
+                            $("#plug_type").text(success.data.plug_type)
+                        }
+                    },
+                })
+
+            }
+
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+
+
+</body>
+
+</html>

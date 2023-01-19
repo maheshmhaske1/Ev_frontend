@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- google platform librery -->
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+    <!-- Required meta tags -->
+    <meta name="google-signin-client_id"
+        content="3482842156-hq1fanqe754geoabnuhtqfjmn1e6admn.apps.googleusercontent.com.apps.googleusercontent.com">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- linking js and css -->
+    <link rel="stylesheet" href="./css//style.css">
+    <script src="./js/index.js"></script>
+    <title>Admin Login</title>
+
+</head>
+
+<body id="page-top">
+
+    <div class="card" style="margin: 30px; border: none;">
+        <h2 style="text-align: center; font-family: ubuntu; color: #17a2b8;"><b>EV App</b></h2>
+        </h3>
+        <div class="card-body" id="outer-card-body">
+            <div id="pageMessages">
+            </div>
+            <div class="card w-105" style="margin: 20px;">
+                <div class="card-body">
+
+                    <form id="login-form">
+                        <h4 class="text-info">
+                            Login
+                        </h4>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
+                                placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="Password" aria-describedby="emailHelp"
+                                placeholder="Password">
+                        </div>
+                        <div id="login-btn-before" style="display: block;">
+                            <button id="login" type="submit" class="btn btn-outline-info">Login
+                            </button>
+                        </div>
+                        <div id="login-btn-after" style="display: none;">
+                            <button id="login" type="submit" class="btn btn-outline-info"><div class="spinner-border spinner-border-sm" role="status"></div>
+                            </button>
+                        </div>
+                        <div class="mb-4">
+                            <hr data-content="OR" class="hr-text">
+                        </div>
+
+                    </form>
+
+
+                    <!-- forgot password form start -->
+                    <form id="register-form" style="padding: 0px; display: none;">
+                        <h4 class="text-info">
+                            Forgot Password
+                        </h4>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="username" placeholder="Enter Mobile">
+                        </div>
+                        <button id="register" type="submit" class="btn btn-outline-info">forgot password</button>
+                        <!-- <p class="text-danger" style="margin-top: 10px;" id="login"><a href="./login.html"
+                                class="text-danger"><b>Login</b> </a>
+                        </p> -->
+                        <div id="fb-root"></div>
+                    </form>
+
+
+
+
+
+
+                    <div id="pageMessages">
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- forgot password login/register screen start-->
+            <div class="card w-105" id="login-signup"
+                style="margin: 20px; margin-top: -8px;align-items: center; display: none;">
+                <div class="d-flex justify-content-center" style="padding: 5px;">
+                    <a href="" style="text-decoration: none;">Login</a>
+                    <div style="color: #17a2b8!important;">
+                        &nbsp <b>|</b> &nbsp
+                    </div>
+                    <a href="" style="text-decoration: none;">Sign up</a>
+                </div>
+            </div>
+            <!-- forgot password login/register screen end -->
+
+            <!-- back to login screen fregister screen start-->
+            <div class="card w-105" id="back-to-login"
+                style="margin: 20px; margin-top: -8px;align-items: center;display: none;">
+                <div class="card-body" id="log-in-btn">
+                    Have an account? <a href="" style="text-decoration: none;"><b>Log in</b></a>
+                </div>
+            </div>
+            <!-- back to login screen fregister screen start-->
+
+
+
+            <div class="card w-105" id="dont-have-account" style="margin: 20px; margin-top: -8px;align-items: center;">
+                <div class="card-body" id="sign-up-btn">
+                    <a href="" style="text-decoration: none;"><b>Forgot Password?</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+
+        $(document).ready(() => {
+
+            // /*----- loading forgot-password form -----*/
+            // $("#forgot-password").click(() => {
+            //     event.preventDefault()
+            //     $("#forgot-pass-form").css('display', 'block');
+            //     $("#login-form").css('display', 'none');
+            //     $("#login-signup").css('display', 'block');
+            //     $("#dont-have-account").css('display', 'none');
+            // })
+
+            // /*----- valididate mail for reset password -----*/
+            // $("#Validiate").click(() => {
+            //     event.preventDefault()
+            //     $("#change-pass-fileds").css('display', 'block');
+            //     let data = {
+            //         email: $("#email-reset-pass").val()
+            //     }
+
+            //     $.ajax({
+            //         url: 'http://localhost:3000/user/isemailexist',
+            //         method: "POST",
+            //         data: data,
+            //         dataType: "json",
+            //         success: (success) => {
+            //             if (success.status == false) {
+            //                 createAlert('', 'Error! Email Not Present', '', 'warning', false, true, 'pageMessages')
+            //                 $("#change-pass-fileds").css('display', 'none');
+            //             }
+            //             else if (success.status == true) {
+            //                 $("#email-reset-pass").css('display', 'none');
+            //                 $("#change-pass-fileds").css('display', 'block');
+            //                 $("#Reset-Password").css('display', 'block');
+            //                 $("#Validiate").css('display', 'none');
+            //                 localStorage.setItem("user_mail_forgot", data.email);
+            //             }
+            //         }
+            //     })
+            // })
+
+            // /*----- reset-password api integration -----*/
+            // $('#Reset-Password').click(() => {
+            //     event.preventDefault()
+
+            //     let changepassword = {
+            //         email: localStorage.getItem("user_mail_forgot"),
+            //         oldpassword: $('#old-password').val(),
+            //         newpassword: $('#new-password').val()
+            //     }
+            //     $.ajax({
+            //         url: 'http://localhost:3000/user/reset-password',
+            //         method: 'POST',
+            //         data: changepassword,
+            //         dataType: 'json',
+            //         success: (success) => {
+            //             if (success.status == false)
+            //                 createAlert('', `Error! ${success.message}`, '', 'warning', false, true, 'pageMessages')
+            //             if (success.status == true) {
+            //                 createAlert('', `Success! ${success.message}`, '', 'success', true, true, 'pageMessages')
+            //                 setTimeout(() => {
+            //                     localStorage.removeItem("user_mail_forgot");
+            //                     location.reload()
+            //                 }, 2000);
+            //             }
+            //             else
+            //                 createAlert('', `Oops! Something Went Wrong`, '', 'warning', false, true, 'pageMessages')
+            //         }
+            //     })
+            // })
+
+            // /*----- loading sign-up form -----*/
+            // $('#sign-up-btn').click(() => {
+            //     event.preventDefault()
+            //     $('#dont-have-account').css('display', 'none')
+            //     $('#register-form').css('display', 'block')
+            //     $('#login-form').css('display', 'none')
+            //     $('#back-to-login').css('display', 'block')
+            // })
+
+            // /*----- loading log-in form -----*/
+            // $('#log-in-btn').click(() => {
+            //     event.preventDefault()
+            //     $('#dont-have-account').css('display', 'block')
+            //     $('#register-form').css('display', 'none')
+            //     $('#login-form').css('display', 'block')
+            //     $('#back-to-login').css('display', 'none')
+            // })
+
+            /*----- login api integration -----*/
+            $("#login").click(() => {
+                event.preventDefault()
+                $("#login-btn-before").css('display', 'none');
+                $("#login-btn-after").css('display', 'block');
+
+
+                let loginDetails = {
+                    admin_mobile: $("#Username").val(),
+                    password: $("#Password").val()
+                }
+
+                // console.log(loginDetails.admin_mobile)
+                // console.log(loginDetails.password)
+
+
+                $.ajax({
+                    url: "http://35.78.201.111:4001/admin/login",
+                    method: "POST",
+                    data: loginDetails,
+                    dataType: "json",
+                    success: success => {
+                        console.log(success)
+                        if (success.status == false) {
+                            createAlert('', `Error! ${success.message}`, '', 'warning', false, true, 'pageMessages')
+                            $("#login-btn-before").css('display', 'block');
+                            $("#login-btn-after").css('display', 'none');
+                        }
+                        if (success.status == true) {
+
+                            let data = success.data.admin[0].token
+                            localStorage.setItem("cookie", data);
+                            localStorage.setItem("id", success.data.admin[0]._id);
+                            // console.log(success)
+                            // createAlert('', 'Success. redirecting toward Dashboard', '', 'success', true, true, 'pageMessages')
+
+                                window.location.href = './dashboard.html'
+
+                        }
+                    },
+                })
+            })
+
+           
+        })
+    </script>
+
+</body>
+
+</html>
