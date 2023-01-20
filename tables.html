@@ -90,92 +90,51 @@
           <i class="fas fa-car"></i>
           <span>Car Management</span></a>
       </li>
-      <!-- Divider -->
-      <!-- <hr class="sidebar-divider d-none d-md-block" /> -->
-
-      <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
     </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-      <!-- Main Content -->
       <div id="content">
-        <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-          <!-- Sidebar Toggle (Topbar) -->
           <form class="form-inline">
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
               <i class="fa fa-bars"></i>
             </button>
           </form>
-
-          <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-
             </div>
           </form>
-
-          <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
-
-              <!-- Dropdown - Messages -->
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                 aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-
                   </div>
                 </form>
               </div>
             </li>
-
-            <!-- Nav Item - Alerts -->
-
-
-
-
             <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
+                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
               </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <button id="log_out" type="button" class="btn btn-danger">Logout</i></button>
+              </a>
             </li>
           </ul>
         </nav>
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
         <div class="container-fluid">
-          <!-- Page Heading -->
-          <!-- <h1 class="h3 mb-2 text-gray-800">Tables</h1> -->
-
-
           <div id="content">
-
-            <!-- === DISPLAY TABLE START === -->
             <div class="display_table" id="display_table">
-              <!-- <div class="card" style="margin: 30px; border: none;"> -->
-
               <div class="card" style="margin: 30px; border: none;">
 
                 <table>
@@ -185,54 +144,17 @@
                   <th>
                   </th>
                 </table>
-
-                <!-- <div class="container mt-5" id="car_table"> -->
-
                 <div class="row" style="justify-content: center;align-items: center;margin-top: 20px;">
-                  <!-- 
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th scope="col" style="text-align: center;">#</th>
-                        <th scope="col" style="text-align: center;">name</th>
-                        <th scope="col" style="text-align: center;">mobile</th>
-                        <th scope="col" style="text-align: center;">email</th>
-                      </tr>
-                    </thead>
-                    <tbody id="render_data">
-
-
-                    </tbody>
-                  </table> -->
-
                   <div class="row" style="margin-left: 35px;">
                     <table id="example" class="table table-bordered" width="100%" style="margin-left: 0px;"></table>
-
                   </div>
-
-
                 </div>
-
-
-                <!-- Modal -->
-
-
                 <div id="update_form">
-
                 </div>
               </div>
-
-              <!-- </div> -->
             </div>
-            <!-- === DISPLAY TABLE END === -->
-
-
-            <!-- === DISPLAY CAR INFO START === -->
             <div class="display_car_info" id="display_car_info" style="display: none;">
               <div class="card" style="margin: 30px; border: none;">
-
-                <!-- <div class="card" style="margin: 30px; border: none;"> -->
-
                 <table>
                   <th style="margin-left: 15px;">
                     <a href="./tables.html"> <button type="button" class="btn btn-outline-danger"
@@ -240,12 +162,7 @@
                           <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
                       </button></a>
                   </th>
-
-
                 </table>
-
-                <!-- <div class="container mt-5" id="car_table"> -->
-
                 <div class="page-content page-container" id="page-content">
                   <div class="padding">
                     <div class="row container d-flex justify-content-center">
@@ -323,21 +240,11 @@
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
-            <!-- === DISPLAY CAR INFO END === -->
-
-
           </div>
-
         </div>
-
-        <!-- /.container-fluid -->
       </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -345,18 +252,11 @@
           </div>
         </div>
       </footer>
-      <!-- End of Footer -->
     </div>
-    <!-- End of Content Wrapper -->
   </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -379,9 +279,6 @@
       </div>
     </div>
   </div>
-
-
-  <!-------modal code --------->
   <div class="modal modal1" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -392,32 +289,18 @@
           </button>
         </div>
         <div class="modal-body" id="modelBody">
-
-
-
         </div>
-
       </div>
     </div>
   </div>
 
 
-  <!-- -------end modal -->
-  <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-
-  <!-- Page level plugins -->
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-  <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
   <script>
     $(document).ready(function () {
@@ -425,6 +308,13 @@
       function abortSession() {
         localStorage.removeItem("cookie")
       }
+
+      $("#log_out").click(() => {
+        if (confirm("are you sure") == true) {
+          localStorage.removeItem("cookie")
+          window.location.href = './index.html'
+        }
+      })
 
       if (!(localStorage.getItem("cookie")) || (localStorage.getItem("cookie")) == null) {
         if (confirm("access denied! please login")) {
@@ -435,7 +325,6 @@
           window.location.href = './index.html'
       }
 
-      
       $.ajax({
         url: `http://35.78.201.111:4001/admin/get-evUsers`,
         method: "GET",

@@ -111,7 +111,46 @@
 
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column" st>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                        <form class="form-inline">
+                            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                        </form>
+    
+    
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown no-arrow d-sm-none">
+                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                    aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto w-100 navbar-search">
+                                        <div class="input-group">
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <!-- Nav Item - Alerts -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                  aria-haspopup="true" aria-expanded="false">
+                                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                  <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                </a>
+                              </li>
+                              <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                  aria-haspopup="true" aria-expanded="false">
+                                  <button id="log_out" type="button" class="btn btn-danger">Logout</i></button>
+                                </a>
+                              </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
             <!-- Main Content -->.
 
             <div id="content">
@@ -480,6 +519,14 @@
                 else
                     window.location.href = './index.html'
             }
+
+            
+        $("#log_out").click(() => {
+            if (confirm("are you sure") == true) {
+                localStorage.removeItem("cookie")
+                window.location.href = './index.html'
+            }
+        })
 
 
             $(document).ready(() => {

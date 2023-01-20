@@ -109,7 +109,6 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -120,6 +119,13 @@
                                     Logout
                                 </a>
                             </div>
+                        </li>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <button id="log_out" type="button" class="btn btn-danger">Logout</i></button>
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -604,6 +610,13 @@
                     window.location.href = './index.html'
             }
 
+            $("#log_out").click(() => {
+                if (confirm("are you sure") == true) {
+                    localStorage.removeItem("cookie")
+                    window.location.href = './index.html'
+                }
+            })
+
             $.ajax({
                 url: `http://35.78.201.111:4001/vehicle/get-all`,
                 method: "GET",
@@ -612,7 +625,6 @@
                 },
                 dataType: "json",
                 success: success => {
-                    console.log(success)
                     let arr1 = []
                     let arr2 = []
                     success.data.map(((data, i) => {
@@ -704,11 +716,9 @@
 
         // ===================== upload data using csv ===================== //
         $('#upload').click(function () {
-            console.log('upload button clicked!')
             var csvFile = new FormData();
 
             csvFile.append('csvFile', $('#csvFile')[0].files[0]);
-            console.log(csvFile)
 
             $.ajax({
                 url: 'http://35.78.201.111:4001/api/uploadCsv/create',
@@ -769,7 +779,6 @@
                     }
                     if (success.status == true) {
                         const vehicles = (success.data[0].vehicles)
-                        console.log(vehicles)
                         $('#display_table').hide();
                         $('#display_car_info').css({ display: 'block' });
                         $("#moreInfo_vehical_type").text(vehicles.vehicle_type)
@@ -809,7 +818,6 @@
             });
             $request.done(async function (data) {
                 var vehicles = data.data[0].vehicles
-                console.log(vehicles)
                 html = ``
                 html = `
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -1078,7 +1086,6 @@
                 engine: $('#engine').val(), fast_charging: $('#fast_charging').val() == "true" ? true : false,
                 description: $('#description').val()
             }
-            console.log(obj)
             $.ajax({
                 url: "http://35.78.201.111:4001/vehicle/add",
                 method: "POST",
@@ -1088,7 +1095,6 @@
                 data: obj,
                 dataType: "json",
                 success: success => {
-                    console.log(success)
                     if (success.status == false) {
                         $.toast({
                             heading: "Error",
@@ -1115,7 +1121,6 @@
                     }
                 },
             })
-            console.log(obj.colors)
         })
 
         function update_vehicle() {
@@ -1134,7 +1139,6 @@
                 engine: $('#update_engine').val(), fast_charging: $('#update_fast_charging').val() == "true" ? true : false,
                 description: $('#update_description').val()
             }
-            console.log(obj)
 
             $.ajax({
                 url: `http://35.78.201.111:4001/vehicle/update/${id}`,

@@ -21,14 +21,15 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- linking js and css -->
     <link rel="stylesheet" href="./css//style.css">
     <script src="./js/index.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./src/toast.css">
     <title>Admin Login</title>
 
 </head>
@@ -61,7 +62,8 @@
                             </button>
                         </div>
                         <div id="login-btn-after" style="display: none;">
-                            <button id="login" type="submit" class="btn btn-outline-info"><div class="spinner-border spinner-border-sm" role="status"></div>
+                            <button id="login" type="submit" class="btn btn-outline-info">
+                                <div class="spinner-border spinner-border-sm" role="status"></div>
                             </button>
                         </div>
                         <div class="mb-4">
@@ -132,7 +134,7 @@
 
 
 
-
+    <script src="./src/toast.js"></script>
     <script>
 
         $(document).ready(() => {
@@ -235,9 +237,6 @@
                     password: $("#Password").val()
                 }
 
-                // console.log(loginDetails.admin_mobile)
-                // console.log(loginDetails.password)
-
 
                 $.ajax({
                     url: "http://35.78.201.111:4001/admin/login",
@@ -247,26 +246,40 @@
                     success: success => {
                         console.log(success)
                         if (success.status == false) {
-                            createAlert('', `Error! ${success.message}`, '', 'warning', false, true, 'pageMessages')
                             $("#login-btn-before").css('display', 'block');
                             $("#login-btn-after").css('display', 'none');
+                            $.toast({
+                                heading: "Error",
+                                text: success.message,
+                                hideAfter: 2000,
+                                position: 'top-center',
+                                icon: "warning"
+                            })
                         }
                         if (success.status == true) {
-
+                            $.toast({
+                                heading: "Error",
+                                text: "logging you in",
+                                hideAfter: 2000,
+                                position: 'top-center',
+                                icon: "success"
+                            })
+                            setTimeout(() => {
+                                window.location.href = './dashboard.html'
+                            }, 2000);
                             let data = success.data.admin[0].token
                             localStorage.setItem("cookie", data);
                             localStorage.setItem("id", success.data.admin[0]._id);
                             // console.log(success)
                             // createAlert('', 'Success. redirecting toward Dashboard', '', 'success', true, true, 'pageMessages')
 
-                                window.location.href = './dashboard.html'
 
                         }
                     },
                 })
             })
 
-           
+
         })
     </script>
 
