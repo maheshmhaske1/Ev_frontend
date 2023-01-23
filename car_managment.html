@@ -372,13 +372,15 @@
                                         </div>
                                     </th>
                                 </table>
+                                <!-- <div class="row" style="align-items: center;justify-content: center;overflow-x: auto;"> -->
 
-                                <div class="row" style="justify-content: center;align-items: center;margin-top: 20px;">
+                                <div class="row" style="justify-content: center;align-items: center;margin-top: 20px;overflow-x: auto;">
                                     <div class="row" style="margin-left: 35px;">
                                         <table id="example" class="table table-bordered" width="100%"
-                                            style="margin-left: -18px;"></table>
+                                            style="margin-left: -18px; overflow: scroll;"></table>
                                     </div>
                                 </div>
+                                
 
                                 <div id="update_form">
                                 </div>
@@ -586,7 +588,7 @@
         $(document).ready(function () {
 
             $.toast({
-                loaderBg:"#25a88e"
+                loaderBg: "#25a88e"
             })
 
             function abortSession() {
@@ -726,7 +728,7 @@
                             heading: "Success",
                             text: "Data Added",
                             hideAfter: 2000,
-                            position : 'top-center',
+                            position: 'top-center',
                             icon: "success"
                         })
                         setTimeout(() => {
@@ -738,7 +740,7 @@
                             heading: "Error",
                             text: "Something went wrong",
                             hideAfter: 2000,
-                            position : 'top-center',
+                            position: 'top-center',
                             icon: "error"
                         })
                         $('#data').empty();

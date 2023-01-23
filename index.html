@@ -139,92 +139,6 @@
 
         $(document).ready(() => {
 
-            // /*----- loading forgot-password form -----*/
-            // $("#forgot-password").click(() => {
-            //     event.preventDefault()
-            //     $("#forgot-pass-form").css('display', 'block');
-            //     $("#login-form").css('display', 'none');
-            //     $("#login-signup").css('display', 'block');
-            //     $("#dont-have-account").css('display', 'none');
-            // })
-
-            // /*----- valididate mail for reset password -----*/
-            // $("#Validiate").click(() => {
-            //     event.preventDefault()
-            //     $("#change-pass-fileds").css('display', 'block');
-            //     let data = {
-            //         email: $("#email-reset-pass").val()
-            //     }
-
-            //     $.ajax({
-            //         url: 'http://localhost:3000/user/isemailexist',
-            //         method: "POST",
-            //         data: data,
-            //         dataType: "json",
-            //         success: (success) => {
-            //             if (success.status == false) {
-            //                 createAlert('', 'Error! Email Not Present', '', 'warning', false, true, 'pageMessages')
-            //                 $("#change-pass-fileds").css('display', 'none');
-            //             }
-            //             else if (success.status == true) {
-            //                 $("#email-reset-pass").css('display', 'none');
-            //                 $("#change-pass-fileds").css('display', 'block');
-            //                 $("#Reset-Password").css('display', 'block');
-            //                 $("#Validiate").css('display', 'none');
-            //                 localStorage.setItem("user_mail_forgot", data.email);
-            //             }
-            //         }
-            //     })
-            // })
-
-            // /*----- reset-password api integration -----*/
-            // $('#Reset-Password').click(() => {
-            //     event.preventDefault()
-
-            //     let changepassword = {
-            //         email: localStorage.getItem("user_mail_forgot"),
-            //         oldpassword: $('#old-password').val(),
-            //         newpassword: $('#new-password').val()
-            //     }
-            //     $.ajax({
-            //         url: 'http://localhost:3000/user/reset-password',
-            //         method: 'POST',
-            //         data: changepassword,
-            //         dataType: 'json',
-            //         success: (success) => {
-            //             if (success.status == false)
-            //                 createAlert('', `Error! ${success.message}`, '', 'warning', false, true, 'pageMessages')
-            //             if (success.status == true) {
-            //                 createAlert('', `Success! ${success.message}`, '', 'success', true, true, 'pageMessages')
-            //                 setTimeout(() => {
-            //                     localStorage.removeItem("user_mail_forgot");
-            //                     location.reload()
-            //                 }, 2000);
-            //             }
-            //             else
-            //                 createAlert('', `Oops! Something Went Wrong`, '', 'warning', false, true, 'pageMessages')
-            //         }
-            //     })
-            // })
-
-            // /*----- loading sign-up form -----*/
-            // $('#sign-up-btn').click(() => {
-            //     event.preventDefault()
-            //     $('#dont-have-account').css('display', 'none')
-            //     $('#register-form').css('display', 'block')
-            //     $('#login-form').css('display', 'none')
-            //     $('#back-to-login').css('display', 'block')
-            // })
-
-            // /*----- loading log-in form -----*/
-            // $('#log-in-btn').click(() => {
-            //     event.preventDefault()
-            //     $('#dont-have-account').css('display', 'block')
-            //     $('#register-form').css('display', 'none')
-            //     $('#login-form').css('display', 'block')
-            //     $('#back-to-login').css('display', 'none')
-            // })
-
             /*----- login api integration -----*/
             $("#login").click(() => {
                 event.preventDefault()
@@ -258,7 +172,7 @@
                         }
                         if (success.status == true) {
                             $.toast({
-                                heading: "Error",
+                                heading: "<b>Welcome</b>",
                                 text: "logging you in",
                                 hideAfter: 2000,
                                 position: 'top-center',
