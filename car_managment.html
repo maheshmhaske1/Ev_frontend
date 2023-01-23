@@ -374,13 +374,14 @@
                                 </table>
                                 <!-- <div class="row" style="align-items: center;justify-content: center;overflow-x: auto;"> -->
 
-                                <div class="row" style="justify-content: center;align-items: center;margin-top: 20px;overflow-x: auto;">
+                                <div class="row"
+                                    style="justify-content: center;align-items: center;margin-top: 20px;overflow-x: auto;">
                                     <div class="row" style="margin-left: 35px;">
                                         <table id="example" class="table table-bordered" width="100%"
                                             style="margin-left: -18px; overflow: scroll;"></table>
                                     </div>
                                 </div>
-                                
+
 
                                 <div id="update_form">
                                 </div>
@@ -1066,28 +1067,45 @@
         }
 
         $('#add_vehicle').click(() => {
-            let obj = {
-                vehicle_brand: $('#vehicle_brand').val(), vehicle_type: $('#vehicle_type').val(),
-                range: $('#range').val(), charging_time: $('#charging_time').val(),
-                vehicle_version: $('#vehicle_version').val(), seat_capacity: $('#seat_capacity').val(),
-                milage: $('#milage').val(), colors: $('#colors').val() ? $('#colors').val().split(';') : '',
-                source_url: $('#source_url').val(), image_url: $('#image_url').val(),
-                cons: $('#cons').val() ? $('#pros').val().split(';') : '', pros: $('#pros').val() ? $('#pros').val().split(';') : '',
-                cost: $('#cost').val(), transmission_type: $('#transmission_type').val(),
-                motor_type: $('#motor_type').val(), motor_torque: $('#motor_torque').val(),
-                motor_power: $('#motor_power').val(), fuel_type: $('#fuel_type').val(),
-                fuel_tank_capacity: $('#fuel_tank_capacity').val(), emission_norm_compliance: $('#emission_norm_compliance').val(),
-                engine: $('#engine').val(), fast_charging: $('#fast_charging').val() == "true" ? true : false,
+
+            var obj = {
+                vehicle_brand: $('#vehicle_brand').val(),
+                vehicle_type: $('#vehicle_type').val(),
+                range: $('#range').val(),
+                charging_time: $('#charging_time').val(),
+                vehicle_version: $('#vehicle_version').val(),
+                seat_capacity: $('#seat_capacity').val(),
+                milage: $('#milage').val(),
+                colors: $('#colors').val() ? $('#colors').val().split(';') : '',
+                source_url: $('#source_url').val(),
+                image_url: $('#image_url').val(),
+                cons: $('#cons').val() ? $('#pros').val().split(';') : '',
+                pros: $('#pros').val() ? $('#pros').val().split(';') : '',
+                cost: $('#cost').val(),
+                transmission_type: $('#transmission_type').val(),
+                motor_type: $('#motor_type').val(),
+                motor_torque: $('#motor_torque').val(),
+                motor_power: $('#motor_power').val(),
+                fuel_type: $('#fuel_type').val(),
+                fuel_tank_capacity: $('#fuel_tank_capacity').val(),
+                emission_norm_compliance: $('#emission_norm_compliance').val(),
+                engine: $('#engine').val(),
+                fast_charging: $('#fast_charging').val() == "true" ? true : false,
                 description: $('#description').val()
             }
+            obj.cost = Number(obj.cost)
+
+
             $.ajax({
                 url: "http://35.78.201.111:4001/vehicle/add",
                 method: "POST",
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
                 },
-                data: obj,
                 dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(obj),
+
                 success: success => {
                     if (success.status == false) {
                         $.toast({
@@ -1120,17 +1138,28 @@
         function update_vehicle() {
             let id = $('#_id').val()
             let obj = {
-                vehicle_brand: $('#update_vehicle_brand').val(), vehicle_type: $('#update_vehicle_type').val(),
-                range: $('#update_range').val(), charging_time: $('#update_charging_time').val(),
-                vehicle_version: $('#update_vehicle_version').val(), seat_capacity: $('#update_seat_capacity').val(),
-                milage: $('#update_milage').val(), colors: $('#update_colors').val() ? $('#update_colors').val().split(',') : '',
-                source_url: $('#update_source_url').val(), image_url: $('#update_image_url').val(),
-                cons: $('#update_cons').val() ? $('#update_pros').val().split(',') : '', pros: $('#update_pros').val() ? $('#update_pros').val().split(';') : '',
-                cost: $('#update_cost').val(), transmission_type: $('#update_transmission_type').val(),
-                motor_type: $('#update_motor_type').val(), motor_torque: $('#update_motor_torque').val(),
-                motor_power: $('#update_motor_power').val(), fuel_type: $('#update_fuel_type').val(),
-                fuel_tank_capacity: $('#update_fuel_tank_capacity').val(), emission_norm_compliance: $('#update_emission_norm_compliance').val(),
-                engine: $('#update_engine').val(), fast_charging: $('#update_fast_charging').val() == "true" ? true : false,
+                vehicle_brand: $('#update_vehicle_brand').val(),
+                vehicle_type: $('#update_vehicle_type').val(),
+                range: $('#update_range').val(),
+                charging_time: $('#update_charging_time').val(),
+                vehicle_version: $('#update_vehicle_version').val(),
+                seat_capacity: $('#update_seat_capacity').val(),
+                milage: $('#update_milage').val(),
+                colors: $('#update_colors').val() ? $('#update_colors').val().split(';') : '',
+                source_url: $('#update_source_url').val(),
+                image_url: $('#update_image_url').val(),
+                cons: $('#update_cons').val() ? $('#update_pros').val().split(';') : '',
+                pros: $('#update_pros').val() ? $('#update_pros').val().split(';') : '',
+                cost: $('#update_cost').val(),
+                transmission_type: $('#update_transmission_type').val(),
+                motor_type: $('#update_motor_type').val(),
+                motor_torque: $('#update_motor_torque').val(),
+                motor_power: $('#update_motor_power').val(),
+                fuel_type: $('#update_fuel_type').val(),
+                fuel_tank_capacity: $('#update_fuel_tank_capacity').val(),
+                emission_norm_compliance: $('#update_emission_norm_compliance').val(),
+                engine: $('#update_engine').val(),
+                fast_charging: $('#update_fast_charging').val() == "true" ? true : false,
                 description: $('#update_description').val()
             }
 
@@ -1140,8 +1169,9 @@
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem("cookie")}`);
                 },
-                data: obj,
                 dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(obj),
                 success: success => {
                     if (success.status == false) {
                         $.toast({
